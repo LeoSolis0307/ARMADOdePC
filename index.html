@@ -7,20 +7,21 @@
     <title>Armador de PC</title>
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/style.css">
-
 </head>
 <body>
     <header>
+        <input type="checkbox" id="switch" /><label for="switch">Toggle</label>
         <h1>Armador de PC</h1>
-        <div id="dropdown" class="dropdown">
+        <div id="dropdown" class="dropdown" ondrop="drop(event)" ondragover="allowDrop(event)">
             <img src="./media/carrito.png" alt="Imagen del carrito" class="cart-image" id="carrito">
+            <div class="total">
+              <p>$<span id="total">0</span></p>
+              <button id="btn-comprar">Comprar</button>
+            </div>
             <div class="dropdown-content">
-                    <!-- Aquí van los componentes -->
-                <ul>
-                    <li>Tarjetas de Video</li>
-                    <li>Procesadores</li>
-                    <li>Memorias RAM</li>
-                    <li>Coolers</li>
+                <ul id="cart-items">
+                    <!-- Aquí se mostrarán los items del carrito -->
+                    <p id="empty-cart">No hay items en el carrito</p>
                 </ul>
             </div>
         </div>
@@ -30,23 +31,25 @@
             <section id="videoCard" class="card">
                 <h2>Tarjetas de Video</h2>
                 <!-- Aquí se mostrarán las tarjetas de video -->
-                <img src="./media/gpu.png" alt="tarjeta de video" draggable="true" ondragstart="drag(event)" id="videoCards">
+                <img src="./media/gpu.png" alt="tarjeta de video" draggable="false" id="videoCards">
                 <div class="stock">
-                    <img src="./media/gpu1.jpg" alt="Stock 1" class="stock-imagevideoCards" src="./media/gpu1.jpg">
-                    <img src="./media/gpu2.jpg" alt="Stock 1" class="stock-imagevideoCards" src="./media/gpu1.jpg">
-                    <img src="./media/gpu3.jpg" alt="Stock 1" class="stock-imagevideoCards" src="./media/gpu1.jpg">
+                    <img src="./media/gpu1.jpg" alt="Stock 1" class="stock-imagevideoCards" src="./media/gpu1.jpg" draggable="true" ondragstart="drag(event)" data-price="3000">
+                    <img src="./media/gpu2.jpg" alt="Stock 1" class="stock-imagevideoCards" src="./media/gpu1.jpg" draggable="true" ondragstart="drag(event)" data-price="3000">
+                    <img src="./media/gpu3.jpg" alt="Stock 1" class="stock-imagevideoCards" src="./media/gpu1.jpg" draggable="true" ondragstart="drag(event)" data-price="3000">
                     <!-- Agrega más imágenes de stock aquí -->
                 </div>
             </section>
-
             <section id="processor" class="card">
                 <h2>Procesadores</h2>
                 <!-- Aquí se mostrarán los procesadores -->
-                <img src="./media/proces.png" alt="procesador" draggable="true" ondragstart="drag(event)" id="processors">
+                <img src="./media/proces.png" alt="procesador" draggable="false" id="processors">
                 <div class="stock">
-                    <img src="./media/proce1.jpeg" alt="Stock 1" class="stock-imageprocessor">
-                    <img src="./media/proce2.jpg" alt="Stock 2" class="stock-imageprocessor">
-                    <img src="./media/proce3.webp" alt="Stock 2" class="stock-imageprocessor">
+                    <img src="./media/proce1.jpeg" alt="Stock 1" class="intel" draggable="true" ondragstart="drag(event)" data-price="4000">
+                    <img src="./media/proce2.jpg" alt="Stock 2" class="intel" draggable="true" ondragstart="drag(event)" data-price="5000">
+                    <img src="./media/proce3.webp" alt="Stock 2" class="intel" draggable="true" ondragstart="drag(event)" data-price="7000">
+                    <img src="./media/amd1.jpg" alt="Stock 2" class="amd" draggable="true" ondragstart="drag(event)" data-price="7000">
+                    <img src="./media/amd2.jpg" alt="Stock 2" class="amd" draggable="true" ondragstart="drag(event)" data-price="7000">
+                    <img src="./media/amd3.jpg" alt="Stock 2" class="amd" draggable="true" ondragstart="drag(event)" data-price="7000">
                     <!-- Agrega más imágenes de stock aquí -->
                 </div>
             </section>
@@ -54,22 +57,23 @@
             <section id="rammemor" class="card">
                 <h2>Memorias RAM</h2>
                 <!-- Aquí se mostrarán las memorias RAM -->
-                <img src="./media/ram.png" alt="memoria ram" draggable="true" ondragstart="drag(event)" id="rammemory">
+                <img src="./media/ram.png" alt="memoria ram" draggable="false" id="rammemory">
                 <div class="stock">
-                    <img src="./media/ram1.jpg" alt="Stock 1" class="stock-imagerammemor">
-                    <img src="./media/ram2.jpg" alt="Stock 1" class="stock-imagerammemor">
-                    <img src="./media/ram3.jpg" alt="Stock 1" class="stock-imagerammemor">                    <!-- Agrega más imágenes de stock aquí -->
+                    <img src="./media/ram1.jpg" alt="Stock 1" class="stock-imagerammemor" draggable="true" ondragstart="drag(event)" data-price="2000">
+                    <img src="./media/ram2.jpg" alt="Stock 1" class="stock-imagerammemor" draggable="true" ondragstart="drag(event)" data-price="300">
+                    <img src="./media/ram3.jpg" alt="Stock 1" class="stock-imagerammemor" draggable="true" ondragstart="drag(event)" data-price="4000">
+                    <!-- Agrega más imágenes de stock aquí -->
                 </div>
             </section>
 
             <section id="coole" class="card">
                 <h2>Coolers</h2>
                 <!-- Aquí se mostrarán los coolers -->
-                <img src="./media/coolers.png" alt="cooler" draggable="true" ondragstart="drag(event)" id="cooler">
+                <img src="./media/coolers.png" alt="cooler" draggable="false" id="cooler">
                 <div class="stock">
-                    <img src="./media/cooler1.jpg" alt="Stock 1" class="stock-imagecoole">
-                    <img src="./media/cooler2.jpg" alt="Stock 1" class="stock-imagecoole">
-                    <img src="./media/cooler3.jpg" alt="Stock 1" class="stock-imagecoole">
+                    <img src="./media/cooler1.jpg" alt="Stock 1" class="stock-imagecoole" draggable="true" ondragstart="drag(event)" data-price="3000">
+                    <img src="./media/cooler2.jpg" alt="Stock 1" class="stock-imagecoole" draggable="true" ondragstart="drag(event)" data-price="6000">
+                    <img src="./media/cooler3.jpg" alt="Stock 1" class="stock-imagecoole" draggable="true" ondragstart="drag(event)" data-price="2000">
                     <!-- Agrega más imágenes de stock aquí -->
                 </div>
             </section>
@@ -77,11 +81,11 @@
             <section id="powerSuppl" class="card">
                 <h2>Fuentes de Poder</h2>
                 <!-- Aquí se mostrarán las fuentes de poder -->
-                <img src="./media/fuente.png" alt="fuente de poder" draggable="true" ondragstart="drag(event)" id="powerSupply">
+                <img src="./media/fuente.png" alt="fuente de poder" draggable="false" id="powerSupply">
                 <div class="stock">
-                    <img src="./media/fuente1.jpg" alt="Stock 1" class="stock-imagepowerSuppl">
-                    <img src="./media/fuente2.jpg" alt="Stock 1" class="stock-imagepowerSuppl">
-                    <img src="./media/fuente3.jpg" alt="Stock 1" class="stock-imagepowerSuppl">
+                    <img src="./media/fuente1.jpg" alt="Stock 1" class="stock-imagepowerSuppl" draggable="true" ondragstart="drag(event)" data-price="3000">
+                    <img src="./media/fuente2.jpg" alt="Stock 1" class="stock-imagepowerSuppl" draggable="true" ondragstart="drag(event)" data-price="3000">
+                    <img src="./media/fuente3.jpg" alt="Stock 1" class="stock-imagepowerSuppl" draggable="true" ondragstart="drag(event)" data-price="3000">
                     <!-- Agrega más imágenes de stock aquí -->
                 </div>
             </section>
@@ -89,23 +93,24 @@
             <section id="motherboar" class="card">
                 <h2>Placas Madre</h2>
                 <!-- Aquí se mostrarán las placas madre -->
-                <img src="./media/tarjetas madre.png" alt="placa madre" draggable="true" ondragstart="drag(event)" id="motherboard">
+                <img src="./media/tarjetas madre.png" alt="placa madre" draggable="false" id="motherboard">
                 <div class="stock">
-                    <img src="./media/mother1.jpg" alt="Stock 1" class="stock-imagemotherboar"> 
-                    <img src="./media/mother2.jpg" alt="Stock 1" class="stock-imagemotherboar">
-                    <img src="./media/mother3.jpg" alt="Stock 1" class="stock-imagemotherboar">
+                    <img src="./media/mother1.jpg" alt="Stock 1" class="stock-imagemotherboar" draggable="true" ondragstart="drag(event)" data-price="3500"> 
+                    <img src="./media/mother2.jpg" alt="Stock 1" class="stock-imagemotherboar" draggable="true" ondragstart="drag(event)" data-price="2000">
+                    <img src="./media/mother3.jpg" alt="Stock 1" class="stock-imagemotherboar" draggable="true" ondragstart="drag(event)" data-price="3700">
+                    <img src="./media/mother_amd1.jpg" alt="Stock 1" class="stock-imagemotherboar" draggable="true" ondragstart="drag(event)" data-price="3700">
+                    <img src="./media/mother_amd2.jpg" alt="Stock 1" class="stock-imagemotherboar" draggable="true" ondragstart="drag(event)" data-price="3700">
+                    <img src="./media/mother_amd3.jpg" alt="Stock 1" class="stock-imagemotherboar" draggable="true" ondragstart="drag(event)" data-price="3700">
+
                     <!-- Agrega más imágenes de stock aquí -->
                 </div>
             </section>
         </div>
-
-        <div id="error" class="error">
-            <!-- Aquí se mostrará el mensaje de error si falta algún componente -->
-        </div>
     </main>
     
     <footer>
-        <script src="./js/app.js"></script>
+
     </footer>
+    <script src="./js/app.js"></script>
 </body>
 </html>

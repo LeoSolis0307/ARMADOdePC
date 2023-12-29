@@ -1,15 +1,75 @@
-#dropdown{
+/**
+ * FILEPATH: /c:/Users/leona/OneDrive/Desarrollo/armador-de-pc/css/style.css
+ * 
+ * Este archivo CSS contiene reglas de estilo para el diseño y los componentes del sitio web.
+ */
+
+/* Establecer el tamaño de fuente para los elementos de encabezado */
+h1, h2 {
+    margin: 10px;
+    font-size: 30px;
+}
+header h1,
+header h2 {
+    margin: -60px 0px 10px 200px;
+}
+/* Establecer el color de fondo para el cuerpo */
+/* Estilos por defecto (tema claro) */
+body {
+    background-color: #fff;
+    color: black;
+    margin-left: 30px;
+}
+
+/* Estilos para el tema oscuro */
+body[data-theme="dark"] {
+    background-color: black;
+    color: white;
+}
+
+/* Establecer el tamaño de fuente para los botones */
+button {
+    font-size: 30px;
+    border-radius: 10px;
+}
+
+/* Estilo para el elemento de interruptor */
+#container {
+    display: flex;
+    justify-content: flex-end; /* Esto moverá los elementos hacia la derecha */
+    width: 100%;
+}
+
+#switch {
+    order: 2; /* Esto asegurará que el switch se muestre después del carrito */
+}
+
+/* Establecer el tamaño de fuente para el elemento total */
+.total {
+    font-size: 50px;
+}
+
+/* Ocultar elementos con la clase 'hide' */
+.hide {
+    display: none;
+}
+
+/* Estilo para el contenedor de la lista desplegable */
+#dropdown {
+    margin-right: 60px;
     position: fixed;
     top: 0;
     left: auto;
-    right: 0; 
+    right: 0;
 }
 
+/* Estilo para el menú desplegable */
 .dropdown {
     position: relative;
     display: inline-block;
 }
 
+/* Estilo para el contenido de la lista desplegable */
 .dropdown-content {
     display: none;
     position: absolute;
@@ -20,26 +80,98 @@
     z-index: 1;
 }
 
+/* Mostrar el contenido de la lista desplegable al pasar el cursor */
 .dropdown:hover .dropdown-content {
     display: block;
 }
-#videoCards,#processors,#rammemory,#cooler,#powerSupply,#motherboard{
+
+/* Estilo para las secciones: videoCards, processors, rammemory, cooler, powerSupply, motherboard */
+#videoCards, #processors, #rammemory, #cooler, #powerSupply, #motherboard {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin: 0px 0px 0px 0px;
-    padding-top: 100px;
-    border:solid 2px #a91ad4
+    margin: 0px 0px 0px 110px;
 }
+
+/* Establecer ancho y alto para las imágenes */
 img {
     width: 250px;
-    height: auto; 
+    height: auto;
+    border-radius: 90px;
+    
 }
-#carrito{
-    width: 150px;
-    height: auto; 
-}
+/* Estilo para las imágenes con la clase 'stock' */
 .stock img {
+    border-radius: 90px;
+    margin-top: 50px;
+    border: solid 2px rgb(199, 80, 80);
     width: 180px;
-    height: auto; 
-  }
+    height: 200px;
+    border-radius: 30px;
+    border: solid 7px #fff;
+}
+.stock img:hover {
+    border-color: #bada55; 
+    opacity: 0.5;
+}
+
+/* Estilo para el elemento carrito */
+#carrito {
+    width: 150px;
+    height: auto;
+    border-radius: 90px;
+}
+/* Estilo para las imágenes dentro del elemento 'cart-items' */
+#cart-items img {
+    width: 100px;
+    height: auto;
+}
+
+/* Estilo para las entradas de casillas de verificación */
+input[type=checkbox] {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+}
+
+/* Estilo para las etiquetas */
+label {
+    cursor: pointer;
+    text-indent: -9999px;
+    width: 140px;
+    height: 70px;
+    background: grey;
+    display: block;
+    border-radius: 100px;
+    position: relative;
+    margin-left: 60%;
+}
+
+/* Estilo para el pseudo-elemento de la etiqueta */
+label:after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 60px;
+    height: 60px;
+    background: #fff;
+    border-radius: 90px;
+    transition: 0.3s;
+}
+
+/* Estilo para las etiquetas seleccionadas */
+input:checked + label {
+    background: #bada55;
+}
+
+/* Estilo para el pseudo-elemento de la etiqueta seleccionada */
+input:checked + label:after {
+    left: calc(100% - 5px);
+    transform: translateX(-100%);
+}
+
+/* Estilo para las etiquetas activas */
+label:active:after {
+    width: 130px;
+}
