@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Armador de PC</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
+
+</head>
+<body>
+    <header>
+        <h1>Armador de PC</h1>
+        <div id="dropdown" class="dropdown">
+            <img src="./media/carrito.png" alt="Imagen del carrito" class="cart-image" id="carrito">
+            <div class="dropdown-content">
+                    <!-- Aquí van los componentes -->
+                <ul>
+                    <li>Tarjetas de Video</li>
+                    <li>Procesadores</li>
+                    <li>Memorias RAM</li>
+                    <li>Coolers</li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <section id="videoCard" class="card">
+                <h2>Tarjetas de Video</h2>
+                <!-- Aquí se mostrarán las tarjetas de video -->
+                <img src="./media/gpu.png" alt="tarjeta de video" draggable="true" ondragstart="drag(event)" id="videoCards">
+                <div class="stock">
+                    <img src="./media/gpu1.jpg" alt="Stock 1">
+                    <img src="./media/gpu2.jpg" alt="Stock 1">
+                    <img src="./media/gpu3.jpg" alt="Stock 1">
+                    <!-- Agrega más imágenes de stock aquí -->
+                </div>
+            </section>
+
+            <section id="processor" class="card">
+                <h2>Procesadores</h2>
+                <!-- Aquí se mostrarán los procesadores -->
+                <img src="./media/proces.png" alt="procesador" draggable="true" ondragstart="drag(event)" id="processors">
+                <div class="stock">
+                    <img src="ruta_a_la_imagen_stock1" alt="Stock 1">
+                    <img src="ruta_a_la_imagen_stock2" alt="Stock 2">
+                    <!-- Agrega más imágenes de stock aquí -->
+                </div>
+            </section>
+
+            <section id="rammemor" class="card">
+                <h2>Memorias RAM</h2>
+                <!-- Aquí se mostrarán las memorias RAM -->
+                <img src="./media/ram.png" alt="memoria ram" draggable="true" ondragstart="drag(event)" id="rammemory">
+                <div class="stock">
+                    <img src="ruta_a_la_imagen_stock1" alt="Stock 1">
+                    <img src="ruta_a_la_imagen_stock2" alt="Stock 2">
+                    <!-- Agrega más imágenes de stock aquí -->
+                </div>
+            </section>
+
+            <section id="coole" class="card">
+                <h2>Coolers</h2>
+                <!-- Aquí se mostrarán los coolers -->
+                <img src="./media/coolers.png" alt="cooler" draggable="true" ondragstart="drag(event)" id="cooler">
+                <div class="stock">
+                    <img src="ruta_a_la_imagen_stock1" alt="Stock 1">
+                    <img src="ruta_a_la_imagen_stock2" alt="Stock 2">
+                    <!-- Agrega más imágenes de stock aquí -->
+                </div>
+            </section>
+
+            <section id="powerSuppl" class="card">
+                <h2>Fuentes de Poder</h2>
+                <!-- Aquí se mostrarán las fuentes de poder -->
+                <img src="./media/fuente.png" alt="fuente de poder" draggable="true" ondragstart="drag(event)" id="powerSupply">
+                <div class="stock">
+                    <img src="ruta_a_la_imagen_stock1" alt="Stock 1">
+                    <img src="ruta_a_la_imagen_stock2" alt="Stock 2">
+                    <!-- Agrega más imágenes de stock aquí -->
+                </div>
+            </section>
+
+            <section id="motherboar" class="card">
+                <h2>Placas Madre</h2>
+                <!-- Aquí se mostrarán las placas madre -->
+                <img src="./media/tarjetas madre.png" alt="placa madre" draggable="true" ondragstart="drag(event)" id="motherboard">
+                <div class="stock">
+                    <img src="./media/mother1.jpg" alt="Stock 1">
+                    <img src="./media/mother2.jpg" alt="Stock 1">
+                    <img src="./media/mother3.jpg" alt="Stock 1">
+                    <!-- Agrega más imágenes de stock aquí -->
+                </div>
+            </section>
+        </div>
+
+        <div id="error" class="error">
+            <!-- Aquí se mostrará el mensaje de error si falta algún componente -->
+        </div>
+    </main>
+    
+    <footer>
+        <script src="./js/app.js"></script>
+    </footer>
+</body>
+</html>
