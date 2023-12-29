@@ -43,8 +43,13 @@ function agregaralcarrito(src, price, name, classElement) {
     compatibilityArray[classElement] = true;
 
     actualizarprecio(price) // Actualizar el total
-
+    // Agregar una imagen del producto al resumen del carrito
+    var resumenCarrito = document.getElementById("cartfinalizacion");
+    var img = document.createElement('img');
+    img.src = src;
+    resumenCarrito.appendChild(img);
     actualizarMensajeCarrito();
+    
 }
 
 function actualizarprecio(price) {
@@ -78,12 +83,44 @@ function actualizarMensajeCarrito() {
         // Si no hay productos, cambiar el mensaje a 'El carrito está vacío'
         emptyCartMessage.textContent = 'El carrito está vacío';
     }
+    var sections = document.getElementsByClassName('card');
+    for (var i = 0; i < sections.length; i++) {
+        if (sections[i].style.display !== 'none') {
+            sections[i].style.display = 'none';
+            if (i + 1 < sections.length) {
+                sections[i + 1].style.display = 'block';
+            }
+            break;
+        }
+    }
 }
 
 function verificarCompatibilidadAMDINTEL(classElement) {
     console.log("Verificando compatibilidad para: " + classElement);
     console.log("compatibilityArray antes de la verificación: ", compatibilityArray);
 
+    // Permitir productos universales independientemente de lo que ya esté en el carrito
+    if (classElement === "universal") {
+        console.log("compatibilityArray después de la verificación: ", compatibilityArray);
+        console.log("No se detectó incompatibilidad");
+        return true;
+    }
+    if (classElement === "universal2") {
+        console.log("compatibilityArray después de la verificación: ", compatibilityArray);
+        console.log("No se detectó incompatibilidad");
+        return true;
+    }
+    if (classElement === "universal4") {
+        console.log("compatibilityArray después de la verificación: ", compatibilityArray);
+        console.log("No se detectó incompatibilidad");
+        return true;
+    }
+    
+    if (classElement === "universal3") {
+        console.log("compatibilityArray después de la verificación: ", compatibilityArray);
+        console.log("No se detectó incompatibilidad");
+        return true;
+    }
     // Verificar si la marca del producto ya está en el carrito
     if (classElement in compatibilityArray) {
         console.log("compatibilityArray después de la verificación: ", compatibilityArray);
@@ -93,7 +130,7 @@ function verificarCompatibilidadAMDINTEL(classElement) {
 
     // Si el carrito ya tiene productos de otra marca, no permitir agregar el producto
     for (var key in compatibilityArray) {
-        if (compatibilityArray[key] && key !== classElement) {
+        if (compatibilityArray[key] && isCompatible(key, classElement)) {
             console.log("compatibilityArray después de la verificación: ", compatibilityArray);
             console.log("Se detectó incompatibilidad");
             return false;
@@ -103,4 +140,19 @@ function verificarCompatibilidadAMDINTEL(classElement) {
     console.log("compatibilityArray después de la verificación: ", compatibilityArray);
     console.log("No se detectó incompatibilidad");
     return true;
+}
+function isCompatible(key, classElement) {
+    if ((key === "amd" && classElement === "amd2") || (key === "amd2" && classElement === "amd")) {
+        return true;
+    }
+    if ((key === "intel" && classElement === "intel2") || (key === "intel2" && classElement === "intel")) {
+        return true;
+    }
+    return false;
+}
+window.onload = function() {
+    var sections = document.getElementsByClassName('card');
+    for (var i = 1; i < sections.length; i++) {
+        sections[i].style.display = 'none';
+    }
 }

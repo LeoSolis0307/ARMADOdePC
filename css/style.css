@@ -26,6 +26,9 @@ body[data-theme="dark"] {
     background-color: black;
     color: white;
 }
+#empty-cart{
+    color: black;
+}
 
 /* Establecer el tamaño de fuente para los botones */
 button {
